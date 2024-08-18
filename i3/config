@@ -160,34 +160,33 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $wallpaper $HOME/images/wallpapers/red.png
+set $wallpaper $HOME/images/wallpapers/rocket.jpeg
 
 # start polybar to display a workspace bar
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
 
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --grayblocks
-exec_always bash $HOME/.config/polybar/grayblocks/scripts/pywal.sh $wallpaper
+exec_always --no-startup-id bash $HOME/.config/polybar/grayblocks/scripts/pywal.sh $wallpaper
 
 # add gaps between windows inside workspace
 gaps inner 15
 # gaps outer 10
 
 # remove titles from windows
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 7
 
 # set wallpaper at startup
-exec_always --no-startup-id feh --bg-scale $HOME/images/wallpapers/$wallpaper
-exec_always --no-startup-id $HOME/images/wallpapers/script.sh $wallpaper
+exec_always --no-startup-id feh --bg-scale $wallpaper
+# exec_always --no-startup-id bash $HOME/images/wallpapers/script.sh $wallpaper
 
 # start pijulius/picom for animations and prettier workspaces
 exec_always --no-startup-id picom --config=$HOME/.config/picom/picom.conf
 
-# disable second monitor at startup.
+# display configuration.
+exec_always --no-startup-id xrandr --output DP-2 --mode 3440x1440 --rate 160 --primary
 exec_always --no-startup-id xrandr --output HDMI-0 --off
