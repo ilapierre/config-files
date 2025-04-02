@@ -1,27 +1,3 @@
--- return {
---   "nvim-lualine/lualine.nvim",
---   dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for icons
---   config = function()
---     require("lualine").setup({
---       options = {
---         theme = "auto",         -- Uses your current colorscheme
---         section_separators = "", -- or {"", ""}
---         component_separators = "", -- or {"", ""}
---         icons_enabled = true,
---         globalstatus = true,    -- single statusline across splits
---       },
---       sections = {
---         lualine_a = { "mode" },
---         lualine_b = { "branch", "diff" },
---         lualine_c = { "filename" },
---         lualine_x = { "diagnostics", "encoding", "fileformat", "filetype" },
---         lualine_y = { "progress" },
---         lualine_z = { "location" },
---       },
---     })
---   end,
--- }
-
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
