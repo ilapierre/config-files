@@ -23,3 +23,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 	end,
 })
+
+-- vim
+vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>') -- WARNING: Might be funky, revise later. 
